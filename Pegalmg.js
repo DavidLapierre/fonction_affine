@@ -65,7 +65,8 @@
         type: 'line',
         data : data2, // SE RAPPORTE AU BLOCK SETUP DU DESSUS !!!!
         options: {
-                maintainAspectRatio: false,
+                maintainAspectRatio: true,
+                aspectRatio: 1,
                 scales: {
                     y: {
                         beginAtZero: true,

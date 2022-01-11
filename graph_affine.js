@@ -70,7 +70,8 @@
         type: 'line',
         data, // SE RAPPORTE AU BLOCK SETUP DU DESSUS !!!!
         options: {
-                maintainAspectRatio: false,
+                maintainAspectRatio: true,
+                aspectRatio: 0.83333,
                 scales: {
                     y: {
                         beginAtZero: true,
@@ -87,6 +88,8 @@
                             text:'y',
                             font: {
                                 size: 25,
+                                weight: 'bold',
+                                family: "Helvetica Neue"
                             }
                         },
                     }, 
@@ -105,6 +108,8 @@
                             text:'x',
                             font: {
                                 size: 25,
+                                weight: 'bold',
+                                family: "Helvetica Neue"
                             }
                         },
                     }, 
