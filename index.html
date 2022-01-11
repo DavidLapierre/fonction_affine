@@ -4,17 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     <title>Fonction affine</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js" integrity="sha512-TW5s0IT/IppJtu76UbysrBH9Hy/5X41OTAbQuffZFU6lQ1rdcLHzpU5BzVvr/YFykoiMYZVWlr/PX1mDcfM9Qg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
-    <!-- CANEVAS -->
-    <div style="width:400px; height:500px">
-        <canvas id="myChart" width="200" height="200">Canevas</canvas>
+
+    <div class="row">
+        <div class="col-12 text-center display-6 text-uppercase bg-white fw-bold">
+        <p class="pt-4 px-3 text-primary">QUELLE EST LA REPRÉSENTATION GRAPHIQUE D'UNE FONCTION AFFINE  ? </p> 
+        </div>
     </div>
 
-    <!-- SLIDER -->
+<div class="row m-1">
+    <div class="col-md-5 col-sm-12 bg-white text-dark p-4 ">
+        <!-- CANEVAS 1 -->
+        <div style="width:400px; height:500px" class="mx-auto">
+            <canvas id="myChart" width="200" height="400" class="col-md-5 col-sm-12">Canevas</canvas>
+        </div>
+        <!-- SLIDER -->
     <div id="slider">
         <input class="bar" type="range" id="rangeinput" min="0" max="5" step="1" value="1" />
         a = <output id="rangevalue">1</output>
@@ -23,180 +34,82 @@
         <input class="bar" type="range" id="rangeinput2" min="-2" max="4" step="1" value="0" />
         b = <output id="rangevalue2">0</output>
     </div>
-
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-    // ----------- SETUP BLOCK ------------
-    // Le bloc de configuration est également considéré comme le bloc de données. 
-    // Ce bloc est essentiellement un const (variable constante) composé de
-    //  plusieurs objets javascript liés aux données. 
-    // Il peut s'agir de points de données, d'étiquettes, de couleurs d'arrière-plan,
-    //  de couleurs de survol, etc.
-    var rangeInput = document.getElementById("rangeinput");
-    var rangeInput2 = document.getElementById("rangeinput2");
-    var donnees = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-    var ordonnees = [];
-
-    donnees.forEach(function(x) {
-            let f_affine = Number(rangeInput.value*x) + Number(rangeInput2.value);
-            ordonnees.push(f_affine)});
+        <script src="graph_affine.js"></script>
+    </div>
+    <div class="col-md-7 col-sm-12 bg-white text-dark mt-5 text-justify">
+        <h3 class="lead fs-3 text-justify">
         
-    console.log(rangeInput2.value);
-    const data = {
-        labels: ['0','1', '2', '3','4', '5', '6', '7', '8', '9', '10'],
-        datasets: [{
-                    label: 'none',
-                    data: ordonnees,
-                    pointStyle: 'cross',
-                    pointRadius: 10,
-                    backgroundColor: [
-                        'black'  
-                    ],
-                    borderColor: [
-                        'black',
-                        'red',
-                        'red',
-                        'red',
-                        'red',
-                        'red',
-                        'red',
-                        'red',
-                        'red',
-                        'red',
-                        'red'
-                    ],
-                    borderWidth: 2.5
-                }]
-    }
-    // yScaleText plugin block
+            <span class="badge bg-danger">MODÉLISATION MATHÉMATIQUE</span> :
+        
+            </h3>
+            <p class="text-justify lead">
+                Les objectifs de cette partie sont extrèmement importants pour la suite de votre scolarité en Mathématiques
+                 et en Physique (bien au-delà de ce que vous imaginez en ce moment...mais faîtes-moi confiance !).
+                Qu'est-ce qu'un modèle mathématique ?
+                
+                C'est une relation mathématique (ou équation mathématique) qui vous donne une règle de calcul. 
+            </p>
+            <p class="lead">y = a × x + b</p>
+            <p class="lead">Attention ! Il ya des choses sous-entendues : 
+                a, b, c (les 1ères lettres de l'alphabet) désignent toujours les nombres connus alors que les nombres inconnus
+                sont toujours désignés par les lettres de la fin de l'alphabet x, y et z. .
+            </p>
+
+                <!-- <span class="badge bg-success">Méthode utilisée</span>
+                
+                <p class="text-justify">Pour cela, un peu de méthode et de bon sens seront nécessaires : on commence toujours par des valeurs
+                     numériques SIMPLES et FACILES pour faire les calculs (ces calculs doivent être faisables de tête !).
+                
+                Par exemple, si 𝐼 = 1𝐴
+                et 𝑅 = 2, 𝑈 = 2×1 = 2𝑉.
+                Si 𝐼 = 2𝐴 et 𝑅=2, 𝑈 = 2×2 = 4𝑉...et ainsi de suite.</p> -->
+    </div>
+</div>
+<div class="row bg-dark">
+    <div class="col-12 text-center display-5 text-uppercase fw-bold">
+        <p class="pt-4 text-white">DES EXEMPLES EN PHYSIQUE</p>
+    </div>
+</div>
+<div class="row">
     
-    const yScaleText = {
-        title: {
-                        display: true,
-                        text: 'y = ' + rangeInput.value + ' x x',
-                        font: {
-                            size: 20,
-                        }
-                    },
-                    legend: {
-                        labels: {
-                            // This more specific font property overrides the global property
-                            font: {
-                                size: 19
-                            }
-                        }
-                    }
-    }
+     <div class="col-md-6 col-sm-12 bg-dark text-dark p-4 ">
+        <div class="ratio ratio-16x9">
+            <iframe class="rounded" src="https://www.youtube.com/embed/qIBzekG19X4" title="YouTube video player" frameborder="0"
+             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
 
-    // ----- CONFIGURATION BLOCK --------
-    // Le bloc de configuration comprend toutes les configurations d'un graphique.
-    // La configuration doit être placée avant le bloc de rendu. 
-    // Comme ce bloc a tendance à dépendre du bloc de données en raison de la variable data const.
-    // ----------------------------------
 
-    const config = {
-        type: 'line',
-        data, // SE RAPPORTE AU BLOCK SETUP DU DESSUS !!!!
-        options: {
-                maintainAspectRatio: false,
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        max: 10,
-                        min:-2,
-                        ticks: {
-                            stepSize:1.0
-                        },
-                        grid: {
-                            color:'rgba(25, 86, 200,0.75)'
-                        }
-                    }, 
-                    x: {
-                        beginAtZero: true,
-                        max: 10,
-                        min:0,
-                        ticks: {
-                            stepSize:1.0
-                        },
-                        grid: {
-                            color:'rgba(25, 86, 200,0.65)'
-                        }
-                    }, 
-                }
-                ,
-                plugins: {
-                    title: {
-                        display: true,
-                        text: 'y = ' + rangeInput.value + ' * x +' +  + rangeInput2.value,
-                        font: {
-                            size: 20,
-                        }
-                    },
-                    legend: {
-                        labels: {
-                            // This more specific font property overrides the global property
-                            font: {
-                                size: 19
-                            }
-                        }
-                    }
-                }
-            }
-        };
+    <div class="col-md-6 col-sm-12 bg-white text-white p-4 ">
+        <!-- CANEVAS 2 -->
+        <div style="width:450px; height:500px" class="mx-auto">
+            <canvas id="myChart2" width="200" height="400" class="col-md-5 col-sm-12"></canvas>
+        </div>
+        
+            <script src="Pegalmg.js"></script>
+    </div>
+</div>
 
-    // -------- RENDER INITIALISATION BLOCK -------
-    // Le dernier bloc qui devrait toujours être le dernier est le bloc de rendu ou d'initialisation.
-    // Ce bloc dessine le graphique dans le canevas en fonction de tout le code ci-dessus. 
-    // Cela signifie que tout le bloc doit être chargé avant le chargement de ce bloc.
-    // Sinon, cela donnerait une erreur et pourrait exclure certains blocs de code.
-    // -------------------------------------------
-    const myChart = new Chart(
-        document.getElementById('myChart').getContext('2d'),
-        config
-    );
+<div class="row">
     
-    var valeur = document.querySelector('input');
-    var rangeInput = document.getElementById("rangeinput");
-    var rangeInput2 = document.getElementById("rangeinput2");
+    <div class="col-md-6 col-sm-12 bg-dark text-dark p-4 ">
+       <div class="ratio ratio-16x9">
+           <iframe class="rounded" src="https://www.youtube.com/embed/OF4MVXRArzs" title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+       </div>
+   </div>
 
-    // GESTIONNAIRE D'ÉVÊNEMENTS :
-    rangeInput.addEventListener("change", function() {
-        
-        document.getElementById("rangevalue").textContent = rangeInput.value ;
-        document.getElementById("rangevalue2").textContent = rangeInput2.value ;
-        // On calcule les données en y :
-        ordonnees = [];
-        donnees.forEach(function(x) {
-            let f_affine = Number(rangeInput.value*x) + Number(rangeInput2.value);
-            ordonnees.push(f_affine)});
-        console.log(ordonnees);
-        // On intègre les données au Graph et on l'update :
-        a = rangeInput.value;
-        b = rangeInput2.value;
-        myChart.options.plugins.title.text = 'y = ' + a + ' * x +  ' + b;
-        myChart.data.datasets[0].data = ordonnees;            
-        myChart.update();
-    });
 
-    rangeInput2.addEventListener("change", function() {
-        
-        document.getElementById("rangevalue").textContent = rangeInput.value ;
-        document.getElementById("rangevalue2").textContent = rangeInput2.value ;
-        // On calcule les données en y :
-        ordonnees = [];
-        donnees.forEach(function(x) {
-            let f_affine = Number(rangeInput.value*x) + Number(rangeInput2.value);
-            ordonnees.push(f_affine)});
-            
+   <div class="col-md-6 col-sm-12 bg-white text-white p-4 ">
+       <!-- CANEVAS 3 -->
+       <div style="width:450px; height:500px" class="mx-auto">
+           <canvas id="myChart3" width="200" height="400" class="col-md-5 col-sm-12"></canvas>
+       </div>
+       
+        <script src="Pegalmg_dec.js"></script>
+   </div>
+</div>
 
-        // On intègre les données au Graph et on l'update :
-        a = rangeInput.value;
-        b = rangeInput2.value;
-        myChart.options.plugins.title.text = 'y = ' + a + ' * x +  ' + b;
-        myChart.data.datasets[0].data = ordonnees;            
-        myChart.update();
-    });
-
-    </script>
 </body>
 </html>
